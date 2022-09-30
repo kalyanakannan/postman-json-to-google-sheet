@@ -16,9 +16,6 @@ function getAPIs(items) {
     if(item.item !== undefined) {
       getAPIs(item.item);
     }
-    // if(item.item !== undefined){
-      
-    // }
     response = getAPIData(item);
     if(response.length) {
       var flat_array = new Array();
@@ -41,9 +38,6 @@ function getAPIData(item) {
   if(item !== null && item !== undefined && item.request !== undefined){
     data['name'] = item['name'];
     keys = Object.keys(item.request);
-    if(data['name'] == 'Create a Account') {
-      console.log(keys)
-    }
     keys.forEach(function(key){
       if (headers[0].indexOf(key) != -1) {
         if(key == 'url' && item.request[key] !==null) {
