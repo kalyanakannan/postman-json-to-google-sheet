@@ -2,8 +2,8 @@ var data    = new Array();
 var data_index = 0;
 var headers = [['name', 'url', 'method', 'description']];
 
-function PostmanImport() {
-  var jsondata = UrlFetchApp.fetch("https://www.getpostman.com/collections/4728f4d010f781cc3390");
+function PostmanImport(URL) {
+  var jsondata = UrlFetchApp.fetch(URL);
   var object   = JSON.parse(jsondata.getContentText());
   getAPIs(object.item);
   SpreadsheetApp.getActiveSpreadsheet().getRange("A1:D1").setValues(headers);
